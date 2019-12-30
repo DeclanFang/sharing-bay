@@ -1,0 +1,23 @@
+{
+  "name": "sharing-bay",
+  "version": "1.0.0",
+  "description": "SharingBay",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeclanFang/sharing-bay.git"
+  },
+  "author": "DeclanNYC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeclanFang/sharing-bay/issues"
+  },
+  "homepage": "https://github.com/DeclanFang/sharing-bay#readme",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.17.1"
+  }
+}
