@@ -46,5 +46,5 @@ app.post("/campgrounds", function(req, res){
 
 app.listen(3000, process.env.IP, function(){
     console.log("The SharingBay server has started...");
-    console.log("The server is listening on port 3000, so please go to check http://localhost:3000");
+    console.log("The server is listening on port 3000 or IDE's port, so please go to check http://localhost:3000 or contact the admin");
 });
