@@ -1,9 +1,34 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/sharing_bay");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+
+// schema setup
+var campgroundSchema = new mongoose.Schema({
+	name: String,
+	image: String
+});
+
+var Campground = mongoose.model("Campground", campgroundSchema);
+
+Campground.create(
+	{
+        name: "Yosemite",
+        image: "https://static01.nyt.com/images/2018/11/11/travel/11yosemite2/merlin_145320882_abb47a0c-1a15-402a-8d30-9dcb7073e46b-superJumbo.jpg"
+	}, function(err, campground){
+		if(err) {
+			console.log(err);
+		}
+		else {
+			console.log("Add new campground: ");
+			console.log(campground);
+		}
+	});
 
 var campgrounds = [
     {
