@@ -3,7 +3,10 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/sharing_bay");
+mongoose.connect("mongodb://localhost/sharing_bay", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -11,46 +14,25 @@ app.set("view engine", "ejs");
 // schema setup
 var campgroundSchema = new mongoose.Schema({
 	name: String,
-	image: String
+	image: String,
+	description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
-
-Campground.create(
-	{
-        name: "Yosemite",
-        image: "https://static01.nyt.com/images/2018/11/11/travel/11yosemite2/merlin_145320882_abb47a0c-1a15-402a-8d30-9dcb7073e46b-superJumbo.jpg"
-	}, function(err, campground){
-		if(err) {
-			console.log(err);
-		}
-		else {
-			console.log("Add new campground: ");
-			console.log(campground);
-		}
-	});
-
-var campgrounds = [
-    {
-        name: "Yosemite",
-        image: "https://static01.nyt.com/images/2018/11/11/travel/11yosemite2/merlin_145320882_abb47a0c-1a15-402a-8d30-9dcb7073e46b-superJumbo.jpg"
-    },
-    {
-        name: "Yellow Stone",
-        image: "https://travelwyoming.com/wp-content/uploads/2019/09/Hero-National-Park-YS.jpg"
-    },
-    {
-        name: "Pacific Crest Trail",
-        image: "https://photos.thetrek.co/wp-content/uploads/2019/02/18145836/Pacific_Crest_Trail_Mount_Rainier.jpg"
-    }
-]
 
 app.get("/", function(req, res){
     res.render("landing");
 });
 
 app.get("/campgrounds", function(req, res){
-    res.render("campgrounds", {campgrounds: campgrounds});
+	Campground.find({}, function(err, allCampgrounds) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.render("campgrounds", {campgrounds: allCampgrounds});
+		}
+	})
 });
 
 app.get("/campgrounds/new", function(req, res){
@@ -60,16 +42,33 @@ app.get("/campgrounds/new", function(req, res){
 app.post("/campgrounds", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
+	var description = req.body.description;
     var newCampground = {
         name: name,
-        image: image
+        image: image,
+		description: description
     };
-    campgrounds.push(newCampground);
+	Campground.create(newCampground, function(err, newlyCreated) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.redirect("/campgrounds");
+		}
+	})
+})
 
-    res.redirect("/campgrounds");
+app.get("/campgrounds/:id", function(req, res) {
+	Campground.findById(req.params.id, function(err, foundCampground) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.render("show", {campground: foundCampground});
+		}
+	});
 })
 
 app.listen(3000, process.env.IP, function(){
-    console.log("The SharingBay server has started...");
-    console.log("The server is listening on port 3000 or IDE's port, so please go to check http://localhost:3000 or contact the admin");
+    console.log("The server is listening on port 3000 or GoormIDE's port, so please go to check http://localhost:3000 or contact the admin");
 });
