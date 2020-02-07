@@ -22,7 +22,7 @@ For now what the application has achieved was creating, editing, deleting any po
 
 Once you have Node.js and MongoDB installed on your computer,
 
-1. [download](https://github.com/HarishTeens/yelpcamp/archive/master.zip) the project or clone it to your computer by running `git clone https://github.com/HarishTeens/yelpcamp.git` on your Git terminal.
+1. [Download](https://github.com/DeclanFang/sharing-bay/archive/master.zip) the project or clone it to your computer by running `git clone https://github.com/DeclanFang/sharing-bay.git` on your Git terminal.
 2. In the directory of the folder `sharing-bay` containing the files of the repositiory, open up the terminal and run `npm install`
 3. Once installation is complete, run `npm start` on the same terminal.
 4. Open your web browser and visit the address `localhost:3000` and voila!
