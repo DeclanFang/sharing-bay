@@ -6,7 +6,7 @@ The project also combined with another project [BlogModel](https://github.com/De
 
 ![image](https://github.com/DeclanFang/sharing-bay/blob/master/readme/homepage.png)
 
-For now what the application has achieved was creating, editing, deleting any posts and comments by user-self, and users are not allowed to change others' posts and comments. Also, people are free to view others' profile after sign in. 
+For now what the application has achieved was creating, editing, deleting any posts and comments by user-self, and users are not allowed to change others' posts and comments. Also, people are free to view others' profile after sign in or sign up. 
 
 ![image](https://github.com/DeclanFang/sharing-bay/blob/master/readme/demo%20posts.png)
 
