@@ -4,7 +4,11 @@ SharingBay is a fully functional NodeJS web application for people to share and 
 
 The project also combined with another project [BlogModel](https://github.com/DeclanFang/blog-model). From that people can add friends and view friends' posts only, which make the application into social networking oriented. 
 
+![image](https://github.com/DeclanFang/sharing-bay/blob/master/readme/homepage.png)
+
 For now what the application has achieved was creating, editing, deleting any posts and comments by user-self, and users are not allowed to change others' posts and comments. Also, people are free to view others' profile after sign in. 
+
+![image](https://github.com/DeclanFang/sharing-bay/blob/master/readme/demo%20posts.png)
 
 ## Getting Started
 
