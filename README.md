@@ -39,4 +39,4 @@ Once you have Node.js and MongoDB installed on your computer,
 
 ## Update log
 
-- v2.0.1 add geocoder with Google's API to display location of posts in Google Map (check through branch "geocoder", not merge yet)
+- v2.0.1 add geocoder with Google's API to display location of posts in Google Map (check through branch [geocoder](https://github.com/DeclanFang/sharing-bay/tree/geocoder), not merge yet)
