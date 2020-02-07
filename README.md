@@ -36,3 +36,7 @@ Once you have Node.js and MongoDB installed on your computer,
   modern applications
 - [Mongoose](https://mongoosejs.com/) - Elegant MongoDB object modeling for Node.js
 - [ejs](https://ejs.co/) - Embedded JavaScript templating
+
+## Update log
+
+- v2.0.1 add geocoder with Google's API to display location of posts in Google Map (check through branch "geocoder", not merge yet)
